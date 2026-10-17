@@ -7,8 +7,8 @@
 ### Key concepts
 
 - **Repository:** A centralized location that stores and distributes Helm charts.
-- **Chart:** A package containing the templates and configuration needed to deploy an application.
-- **Release:** An installed instance of a Helm chart.
+- **Chart:** A bundle or package of an application.
+- **Release:** Release is the deployed instance of our chart.
 
 **Examples:** NGINX, Prometheus, Grafana, and Redis can each be deployed using Helm charts.
 
