@@ -5,16 +5,16 @@
 - **Helm is a package manager for Kubernetes**, similar to `apt` in Ubuntu. 
 - It helps us install, upgrade, and uninstall applications on a Kubernetes cluster.
 
-- **a. Concepts of Repository in Helm:** A centralized location that stores and distributes Helm charts.
+### **a. Concepts of Repository in Helm:** A centralized location that stores and distributes Helm charts.
 - When we do `apt install nginx` apt connects to Default Repository, (https://archive.ubuntu.com). All the packages like nginx, java are the part of this repo. similar we need to have a Helm Repository, which has all the charts.
   
-- **b. Concepts of Chart in Helm:** A bundle or package of an application.
+### **b. Concepts of Chart in Helm:** A bundle or package of an application.
 - **Examples:**
 - Bundle of Prometheus is called as Prometheus chart
 - Bundle of Grafana is called as Grafana chart
 - so within the repo. which ever chart we have we can only install those charts.
 
-- **c. Concepts of Release in Helm:** Release is the deployed instance of our chart.
+### **c. Concepts of Release in Helm:** Release is the deployed instance of our chart.
 
 
 
