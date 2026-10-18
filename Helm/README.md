@@ -5,18 +5,18 @@
 - **Helm is a package manager for Kubernetes**, similar to `apt` in Ubuntu. 
 - It helps us install, upgrade, and uninstall applications on a Kubernetes cluster.
 
-**(a). Concepts of Repository in Helm:** A centralized location that stores and distributes Helm charts.
+**(a).** Concepts of **Repository in Helm:** A centralized location that stores and distributes Helm charts.
 - When we do `apt install nginx` apt connects to Default Repository, (https://archive.ubuntu.com). All the packages like nginx, java are the part of this repo. similar we need to have a Helm Repository, which has all the charts.
   
-**(b). Concepts of Chart in Helm:** A bundle or package of an application.
+**(b).** Concepts of **Chart in Helm:** A bundle or package of an application.
 - **Examples:**
 - Bundle of Prometheus is called as Prometheus chart
 - Bundle of Grafana is called as Grafana chart
 - so within the repo. which ever chart we have we can only install those charts.
 
-**(c). Concepts of Release in Helm:** Release is the deployed instance of our chart.
+**(c).** Concepts of **Release in Helm:** Release is the deployed instance of our chart.
 
-
+---
 
 ## 2. Install Helm on Ubuntu
 
@@ -31,9 +31,10 @@ kubectl get nodes
 
 ## 3. Add a Helm Repository
 
-- Helm downloads charts from configured chart sources.
-
-Bitnami is an example of a chart publisher.
+### Common Helm chart Repo.:
+- `https://charts.bitnami.com/bitnami` is the **Bitnami Helm Charts repository**.
+- It is a software repository used to deploy applications on Kubernetes.
+- Bitnami provides ready-to-use software packages, container images, and Helm charts for applications such as MongoDB, Redis, and PostgreSQL.
 
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -54,11 +55,8 @@ helm search repo bitnami
 helm search repo bitnami | grep -i nginx
 ```
 
-Example chart reference: `bitnami/nginx`
+*Example chart reference:* `bitnami/nginx`
 
-Here, `bitnami` is the repository name and `nginx` is the chart name.
-
-If a chart is not in your configured repositories, search [Artifact Hub](https://artifacthub.io/) or the application's official documentation.
 
 ## 5. Install an Application Using Helm
 
@@ -74,7 +72,7 @@ helm install <release-name> <repository>/<chart-name>
 helm install nginxv1 bitnami/nginx
 ```
 
-Verify the installation:
+**Verify the installation:**
 
 ```bash
 helm list
@@ -82,7 +80,13 @@ helm status nginxv1
 kubectl get pods
 ```
 
-In this example:
+**Uninstall using helm:**
+
+```bash
+helm list
+helm uninstall nginxv1  #Remove the release.
+```
+**In this example:**
 
 - `nginxv1` — Release name.
 - `bitnami/nginx` — Chart reference.
@@ -90,7 +94,8 @@ In this example:
 
 ## 6. Install Charts from Other Sources
 
-Not every application is available in Bitnami. For example, Argo CD and AWS Load Balancer Controller have their own installation instructions and chart sources.
+Not every application is available in Bitnami. 
+For example, Argo CD and AWS Load Balancer Controller have their own installation instructions and chart sources.
 
 Search for charts:
 
@@ -106,23 +111,15 @@ Then follow the official documentation to configure the correct chart source and
 
 ## 7. Upgrade and Uninstall a Release
 
-Upgrade an existing release (use the correct chart reference and desired configuration):
-
+- Upgrade an existing release (use the correct chart reference and desired configuration):
+- helm upgrade → Update an existing release.
+  
 ```bash
 helm upgrade nginxv1 <repository>/<chart-name>
+helm upgrade my-nginx bitnami/nginx --set replicaCount=3
+kubectl get pods
 ```
 
-List releases:
-
-```bash
-helm list
-```
-
-Uninstall a release:
-
-```bash
-helm uninstall nginxv1
-```
 
 ## 8. Create Your Own Helm Chart
 
