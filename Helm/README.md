@@ -191,9 +191,9 @@ spec:
 
 **Important files:**
 
-- `Chart.yaml` — Chart name, version, and metadata.
-- `values.yaml` — Default application configuration. (It is used to make any customization to the template).
-- `templates/` — Kubernetes resource templates, such as Deployments and Services
+- `Chart.yaml` — It Contains the chart's metadata and information, such as its name, version, and description.
+- `values.yaml` — It Contains the default configuration values used by templates. We can customize these values without modifying the template files. 
+- `templates/` — It contains template files used to create Kubernetes resources, such as Deployments and Services.
 
 ## 9. Create Your Own Helm Chart 
 
