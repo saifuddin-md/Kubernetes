@@ -120,11 +120,9 @@ helm upgrade my-nginx bitnami/nginx --set replicaCount=3
 kubectl get pods
 ```
 
+## 8. 𝗕𝗮𝘀𝗶𝗰 𝗛𝗲𝗹𝗺 𝗖𝗵𝗮𝗿𝘁 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗲
 
-## 8. Create Your Own Helm Chart
-
-- 𝗕𝗮𝘀𝗶𝗰 𝗛𝗲𝗹𝗺 𝗖𝗵𝗮𝗿𝘁 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗲
-
+```txt
   myapp/
 ├── Chart.yaml
 ├── values.yaml
@@ -133,7 +131,7 @@ kubectl get pods
     ├── config.yaml
     ├── deployment.yaml
     └── service.yaml
-
+```
 
 **🔹 1. Chart.yaml — Chart Metadata**
 
@@ -191,19 +189,66 @@ spec:
 
 **Notice** how {{ .Values.replicaCount }} reads the replica count from values.yaml. This makes the template reusable without hardcoding every configuration.
 
+**Important files:**
 
+- `Chart.yaml` — Chart name, version, and metadata.
+- `values.yaml` — Default application configuration.
+- `templates/` — Kubernetes resource templates, such as Deployments and Services
 
+## 9. Create Your Own Helm Chart
 
+How we can package/bundle application as helm charts and how can we deploy those application as helm chart on k8s cluster.?
 
-
----
-Helm lets us package our own applications into reusable charts and deploy them on Kubernetes.
-
-Create a chart:
+**Create a directory**
 
 ```bash
-helm create myapp
+mkdir -p best-commerce/{payments,shipping}
+cd best-commerce
 ```
+**Create a chart:**
+
+```bash
+helm create payments
+helm create shipping
+```
+
+```bash
+ls -lrt
+cd payments
+ls -lrt
+charts.yaml
+values.yaml
+templates
+charts      #ignore it
+cd ..
+cd shipping
+ls -lrt
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Important files:
 
