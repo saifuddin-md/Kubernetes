@@ -205,22 +205,35 @@ How we can package/bundle application as helm charts and how can we deploy those
 mkdir -p best-commerce/{payments,shipping}
 cd best-commerce
 ```
-**Create a chart:**
 
+**Create Helm charts**
 ```bash
 helm create payments
 helm create shipping
 ```
 
+**List directories**
 ```bash
 ls -lrt
 cd payments
 ls -lrt
-
 cd ..
 cd shipping
 ls -lrt
 ```
+
+**Edit the Payments chart**
+```bash
+cd ../payments
+cd templates
+ls
+nano deployment.yaml    # Remove and replace content
+cd ..
+nano values.yaml       # Remove and replace content
+nano Chart.yaml        # Do not change
+```
+
+**Note:** Use `templates`, `values.yaml`, and `Chart.yaml` with the correct spelling and capitalization.
 
 **Validate and deploy:**
 
