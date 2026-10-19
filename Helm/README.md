@@ -123,9 +123,8 @@ kubectl get pods
 
 ## 8. Create Your Own Helm Chart
 
-- (a.) 𝗕𝗮𝘀𝗶𝗰 𝗛𝗲𝗹𝗺 𝗖𝗵𝗮𝗿𝘁 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗲
+- 𝗕𝗮𝘀𝗶𝗰 𝗛𝗲𝗹𝗺 𝗖𝗵𝗮𝗿𝘁 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗲
 
-```text
   myapp/
 ├── Chart.yaml
 ├── values.yaml
@@ -134,9 +133,9 @@ kubectl get pods
     ├── config.yaml
     ├── deployment.yaml
     └── service.yaml
-```
 
-### 🔹 1. Chart.yaml — Chart Metadata
+
+**🔹 1. Chart.yaml — Chart Metadata**
 
 Defines the chart name, version, and application version.
 
@@ -149,7 +148,7 @@ version: 0.1.0
 appVersion: "1.0.0"
 ```
 
-### 🔹 2. values.yaml — Configuration Values
+**🔹 2. values.yaml — Configuration Values**
 
 Stores configurable values such as the Docker image, replica count, and service port.
 
@@ -162,7 +161,7 @@ service:
   port: 80
 ```
 
-### 🔹 3. templates/ — Kubernetes YAML Templates
+**🔹 3. templates/ — Kubernetes YAML Templates**
 
 Helm uses templates to generate Kubernetes manifests based on values defined in values.yaml.
 
