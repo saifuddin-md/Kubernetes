@@ -216,10 +216,7 @@ helm create shipping
 ls -lrt
 cd payments
 ls -lrt
-charts.yaml
-values.yaml
-templates
-charts      #ignore it
+
 cd ..
 cd shipping
 ls -lrt
