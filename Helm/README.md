@@ -225,52 +225,24 @@ cd shipping
 ls -lrt
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Important files:
-
-- `Chart.yaml` — Chart name, version, and metadata.
-- `values.yaml` — Default application configuration.
-- `templates/` — Kubernetes resource templates, such as Deployments and Services.
-
-Validate and deploy:
+**Validate and deploy:**
 
 ```bash
-helm lint myapp
-helm template myapp ./myapp
+helm lint myapp                                                # Checks the myapp Helm chart for errors and common problems.
+helm template myapp ./myapp                                    # Preview the Kubernetes resources
+helm install <release-name> <path to your chart directory>     # Installs the chart into your Kubernetes cluster.
 helm install myapp-release ./myapp
 ```
 
-Package the chart:
+**Package the chart:**
 
 ```bash
-helm package myapp
+helm package myapp                                              # Packages the Helm chart into a compressed .tgz archive.
 ```
 
 **Workflow:** Create chart → Configure → Validate → Package → Publish → Deploy.
+
+---
 
 ## Quick Revision
 
