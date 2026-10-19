@@ -123,6 +123,81 @@ kubectl get pods
 
 ## 8. Create Your Own Helm Chart
 
+- (a.) 𝗕𝗮𝘀𝗶𝗰 𝗛𝗲𝗹𝗺 𝗖𝗵𝗮𝗿𝘁 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗲
+
+```text
+  myapp/
+├── Chart.yaml
+├── values.yaml
+├── charts/                  #ignore it
+└── templates/
+    ├── config.yaml
+    ├── deployment.yaml
+    └── service.yaml
+```
+
+### 🔹 1. Chart.yaml — Chart Metadata
+
+Defines the chart name, version, and application version.
+
+```yaml
+apiVersion: v2
+name: myapp
+description: My Kubernetes application
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+```
+
+### 🔹 2. values.yaml — Configuration Values
+
+Stores configurable values such as the Docker image, replica count, and service port.
+
+```yaml
+replicaCount: 2
+image:
+  repository: nginx
+  tag: "1.27"
+service:
+  port: 80
+```
+
+### 🔹 3. templates/ — Kubernetes YAML Templates
+
+Helm uses templates to generate Kubernetes manifests based on values defined in values.yaml.
+
+**Example:** templates/deployment.yaml
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-myapp
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: nginx
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 80
+```
+
+**Notice** how {{ .Values.replicaCount }} reads the replica count from values.yaml. This makes the template reusable without hardcoding every configuration.
+
+
+
+
+
+
+---
 Helm lets us package our own applications into reusable charts and deploy them on Kubernetes.
 
 Create a chart:
