@@ -120,7 +120,7 @@ helm upgrade my-nginx bitnami/nginx --set replicaCount=3
 kubectl get pods
 ```
 
-## 8. 𝗕𝗮𝘀𝗶𝗰 𝗛𝗲𝗹𝗺 𝗖𝗵𝗮𝗿𝘁 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗲
+## 8. Basic Helm chart structure
 
 ```txt
   myapp/
@@ -195,7 +195,7 @@ spec:
 - `values.yaml` — Default application configuration.
 - `templates/` — Kubernetes resource templates, such as Deployments and Services
 
-## 9. Create Your Own Helm Chart
+## 9. Create Your Own Helm Chart 
 
 How we can package/bundle application as helm charts and how can we deploy those application as helm chart on k8s cluster.?
 
