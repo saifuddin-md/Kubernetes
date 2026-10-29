@@ -3,7 +3,7 @@
 ## 1. What is Helm?
 
 - **Helm is a package manager for Kubernetes**, similar to `apt` in Ubuntu. 
-- It helps us install, upgrade, and uninstall applications on a Kubernetes cluster.
+- It helps us **install, upgrade,** and **uninstall** applications on a Kubernetes cluster.
 
 **(a).** Concepts of **Repository in Helm:** A centralized location that stores and distributes Helm charts.
 - When we do `apt install nginx` apt connects to Default Repository, (https://archive.ubuntu.com). All the packages like nginx, java are the part of this repo. similar we need to have a Helm Repository, which has all the charts.
