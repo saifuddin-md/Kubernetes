@@ -1,8 +1,5 @@
 # Top 20 Helm Interview Questions and Answers
 
-A concise interview-preparation guide for DevOps, Kubernetes, and Cloud
-Engineer roles.
-
 ## Basic Helm Questions
 
 ### 1. What is Helm in Kubernetes?
